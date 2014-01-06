@@ -9,40 +9,122 @@ html {
 }
 body {
   font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
 }
-h1 {
-  font-family: "museo-sans", sans-serif;
-  font-weight: 100;
-  font-size: 4rem;
+tr {
+  white-space: nowrap;
 }
-h2 {
-  font-family: "museo-sans", sans-serif;
-  font-weight: 100;
+.navbar {
+  margin-bottom: 0;
+  background: #e4e3d7;
+  border: none;
+  box-shadow: inset 0px -4px 0px -2px rgba(50, 50, 50, 0.2);
+}
+.navbar span.appname,
+.navbar i.fa {
+  line-height: 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #999;
+}
+.navbar i {
+  margin: 0 15px;
+}
+.form-group {
+  margin-bottom: 0;
+}
+.navbar-nav {
+  margin: 0;
+}
+section#playlists tr td.options {
+  opacity: 0;
+  background: red;
+}
+section#playlists tr.edit td.options {
+  opacity: 1;
+}
+.current {
+  padding: 15px 30px;
+}
+.current span {
+  display: block;
+  font-weight: 600;
   color: #666;
+  white-space: nowrap;
 }
-.success {
-  color: #5cb85c;
+.current span.track {
+  margin-bottom: 5px;
 }
-label {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+.current span.album,
+.current span.artist {
+  font-size: .75rem;
+  color: #999;
+  font-weight: 300;
 }
-p {
-  font-family: "Open Sans", sans-serif;
-  font-size: .9rem;
-  line-height: 2em;
+.current i.fa-bars {
+  position: relative;
+  float: right;
 }
-section.wide {
-  padding: 30px 0;
+.progholder {
+  background: #EFEFEF;
+  box-shadow: inset 0px -4px 0px -2px rgba(50, 50, 50, 0.2);
+  position: relative;
+  height: 22px;
 }
-section.wide p {
-  text-align: justify;
+.progholder .time {
+  color: #666;
+  font-size: 0.7rem;
+  line-height: 16px;
+  margin-left: 5px;
 }
-.grayscale img {
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
-  opacity: 0.2;
+.progholder .prog {
+  height: 22px;
+  background: #e95f1d;
+  width: 0%;
+  color: #FFF;
+  box-shadow: inset 0px -4px 0px -2px rgba(50, 50, 50, 0.2);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+}
+.progholder .prog .time {
+  color: #FFF;
+}
+.control {
+  position: relative;
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+.control i {
+  line-height: 60px;
+  color: #999;
+}
+.control i.fa-fast-backward,
+.control i.fa-fast-forward {
+  font-size: 1rem;
+}
+.control i.fa-pause,
+.control i.fa-play {
+  font-size: 1.6rem;
+}
+.control i.active,
+.control i:active {
+  color: #e95f1d;
+}
+.cube-wrap {
+  -webkit-perspective: 640px;
+  -webkit-perspective-origin: 50% 50%;
+  z-index: 1000;
+  position: relative;
+  background: #CCC;
+}
+.cube-wrap .cube {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  -webkit-transform: translateZ(-160px);
+  -webkit-transform-style: preserve-3d;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
@@ -50,99 +132,61 @@ section.wide p {
   -webkit-animation-iteration-count: 1;
   -moz-animation-iteration-count: 1;
 }
-.grayscale img:hover {
-  opacity: 1.0;
-  -webkit-filter: grayscale(0%);
-  -moz-filter: grayscale(0%);
-  filter: grayscale(0%);
+.cube-wrap .cube div {
+  position: absolute;
+  width: 320px;
+  height: 320px;
 }
-.alert {
-  margin-bottom: 0;
+.cube-wrap .cube div img {
+  width: 100%;
+  pointer-events: none;
 }
-.navbar {
-  margin-bottom: 0;
+.cube-wrap .cube div.pane {
+  display: none;
 }
-.navbar img {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+.cube-wrap .cube div.pane:first-child {
+  display: block;
+  -webkit-transform: translateZ(160px);
 }
-.navbar span {
-  color: #CCC;
-  margin-right: 10px;
+.cube-wrap .cube div.pane:nth-child(2) {
+  display: block;
+  -webkit-transform: translateZ(-160px) rotateY(180deg);
 }
-.navbar span a {
-  color: #CCC;
-  border-bottom: 1px dotted #FFF;
+.cube-wrap .cube div.pane:nth-child(3) {
+  display: block;
+  -webkit-transform: rotateY(270deg) translateX(-160px);
+  -webkit-transform-origin: left center 0px;
 }
-.navbar span a:hover {
-  text-decoration: none;
+.cube-wrap .cube div.pane:nth-child(4) {
+  display: block;
+  -webkit-transform: rotateY(-270deg) translateX(160px);
+  -webkit-transform-origin: right top 0px;
 }
-.jumbotron {
-  background-size: cover;
-  padding: 100px 0 60px 0;
-}
-.jumbotron .container {
-  padding: 0;
-}
-.jumbotron p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  line-height: 1.5em;
-}
-.jumbotron label {
-  font-size: 14px;
-}
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-}
-.form-signin .form-signin-heading {
-  margin-bottom: 10px;
-}
-.form-signin .checkbox {
-  margin-bottom: 10px;
-  font-weight: normal;
-}
-.form-signin .form-control {
+.cube-wrap .cube-controls {
+  height: 60px;
   position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  width: 320px;
+  -webkit-transform: translateZ(-160px);
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
 }
-.form-signin .form-control:focus {
-  z-index: 2;
+.cube-wrap .cube-controls div.pane {
+  position: absolute;
+  width: 320px;
+  height: 100%;
+  background: white;
 }
-.form-signin input[type="text"] {
-  margin-bottom: -1px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+.cube-wrap .cube-controls div.pane:first-child {
+  display: block;
+  -webkit-transform: translateZ(160px);
 }
-.form-signin input[type="password"],
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-}
-.form-signin .help-block {
-  color: #FF0000;
-  font-size: .7em;
-}
-.btn-group.facebook a {
-  background-color: #3b5998;
-  border-color: #2e487f;
-}
-.btn-group.facebook a:hover {
-  background-color: #2e487f;
-  border-color: #233a6a;
-}
-footer {
-  background-color: #333;
-  margin-top: 30px;
-  padding: 30px;
-}
-footer span {
-  color: white;
+.cube-wrap .cube-controls div.pane:nth-child(2) {
+  display: block;
+  -webkit-transform: rotateY(-270deg) translateX(160px);
+  -webkit-transform-origin: right top 0px;
 }

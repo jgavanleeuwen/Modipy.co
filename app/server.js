@@ -11,6 +11,6 @@ locomotive.boot('./', env, function(err, server) {
 	
 	server.listen(port, address, function() {
 		var addr = this.address();
-		console.log('   info  -'.cyan + ' locomotive started on %s:%d', addr.address, addr.port);
+		console.log('   info  -'.cyan + ' locomotive started on localhost:%d', addr.address, addr.port);
 	});
 });

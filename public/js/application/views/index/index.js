@@ -2,19 +2,33 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'app',
 	'getbootstrap',
 	'modernizr',
-	'events/dispatcher'
-], function($, _, Backbone, GetBootstrap, Modernizr, Dispatcher) {
+	'events/dispatcher',
+	'events/mopidy',
+	'views/playlist/playlist',
+	'views/tracklist/tracklist',
+	'views/playback/current'
+], function($, _, Backbone, App, GetBootstrap, Modernizr, Dispatcher, Mopidy, PlaylistView, TracklistView, CurrentView) {
 		var indexView = Backbone.View.extend({
 			el: 'body',
 
 			initialize: function() {
 				_.bindAll(this, 'render');
+
+				this.template = this.$el.html();
+				this.tracklistView = new TracklistView();
+				this.playlistView = new PlaylistView();
+				this.currentView = new CurrentView();
+				
+				Mopidy.connect();
 			},
 
 			render: function() {
-				this.template = this.$el.html();
+				App.router.navigate('playlists');
+
+				return this;
 			}
 
 		});

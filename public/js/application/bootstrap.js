@@ -1,9 +1,13 @@
 require.config({
 	paths: {
 		// Libs
-		jquery: 'http://code.jquery.com/jquery-latest.min',
+		jquery: 'http://code.jquery.com/jquery-latest',
 		underscore: '../libs/underscore/underscore.min',
 		backbone: '../libs/backbone/backbone.min',
+
+		// Hammer
+		hammer: '../plugins/hammer/jquery.hammer.min',
+		hammeradapter: '../plugins/hammer/backbone.hammer',
 
 		// Twitter Bootstrap
 		getbootstrap: '../plugins/bootstrap/bootstrap.min',
@@ -21,6 +25,12 @@ require.config({
 		},
 		getbootstrap: {
 			deps: ['jquery']
+		},
+		hammer : {
+			deps: ['jquery']
+		},
+		hammeradapter: {
+			deps: ['jquery', 'hammer']
 		}
 	},
 	deps: ["main"]

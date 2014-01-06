@@ -15,7 +15,7 @@ function(Backbone, App, Router) {
 
     if (href.prop.slice(0, root.length) === root) {
       evt.preventDefault();
-      Backbone.history.navigate(href.attr, false);
+      Backbone.history.navigate(href.attr, true);
     }
 
   });

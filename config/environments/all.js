@@ -45,6 +45,6 @@ module.exports = function() {
 	this.use(this.router);
 
 	this.use(function(req, res, next) {
-		res.render('404.html.ejs', { status: 404, url: req.url});
+		res.redirect('/');
 	});
 };

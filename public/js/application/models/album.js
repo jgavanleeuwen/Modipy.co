@@ -2,11 +2,9 @@ define([
 	'underscore',
 	'backbone'
 	], function( _, Backbone) {
-		var Model = Backbone.Model.extend({
-
-			idAttribute: '_id'
+		var AlbumModel = Backbone.Model.extend({
 
 		});
 		
-		return Model;
+		return AlbumModel;
 	});

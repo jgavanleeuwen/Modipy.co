@@ -10,33 +10,48 @@
 		<div class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Modipy.co</a>
-          <ul class="nav navbar-nav">
-            <li><a href="404" class="active" data-bypass="true">404</a></li>
-          </ul>
+        	<a class="pull-left" href="#"><i class="fa fa-bars"></i></a>
+          <span class="appname">Now Playing</span>
+          <a class="pull-right" href="#"><i class="fa fa-search"></i></a>
         </div>
       </div>
     </div>
 
-		<!-- Hero -->
-		<section id="hero">
-			<div class="jumbotron">
-				<div class="container">
-					<div class="col-md-7">
-						<h1>Hello, Modipy!</h1>
-						<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-						<p><a class="btn btn-primary" role="button">Create a project »</a></p>
-					</div>
-					<div class="col-md-5">
-					</div>
-				</div>
-			</div>
-		</section>
+    <div id="screens">
 
+    	<section id="current">
+    		<div class="container">
+    			<div class="row">
+    				<center>
+    					<span>Status = offline</span>
+    				</center>
+    			</div>
+    		</div>
+
+    	</section>
+
+	    <section id="playlists">
+	    	<form class="form-horizontal" role="form">
+					<div class="form-group">
+					  <div class="col-sm-12">
+					    <input type="email" class="form-control search" id="inputEmail3" placeholder="Search">
+					  </div>
+					</div>
+				</form>
+	    	<table class="table table-striped"></table>
+	    </section>
+
+	    <section id="tracklist">
+	    	<form class="form-horizontal" role="form">
+					<div class="form-group">
+					  <div class="col-sm-12">
+					    <input type="email" class="form-control search" id="inputEmail3" placeholder="Search">
+					  </div>
+					</div>
+				</form>
+	    	<table class="table table-striped"></table>
+	    </section>
+
+	  </div>
 	</body>
 </html>

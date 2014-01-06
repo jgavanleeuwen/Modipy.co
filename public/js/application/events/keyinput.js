@@ -12,7 +12,7 @@ define([
 				event.preventDefault();
 
 				var code = (event.keyCode ? event.keyCode : event.which);
-				Dispatcher.trigger('input:key', { key: code });
+				Dispatcher.trigger('input:key', { key: code, ctrl: false, shift: false });
 			
 			});
 		}
